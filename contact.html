@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+     <link rel="icon" type="" sizes="32x32" href="image/favicon.png">
+     <link rel="stylesheet" href="contact/contact.css">
+</head>
+<body>
+
+  <!-- ================= HEADER =================-->
+<header class="header">
+    <div class="container nav">
+        <img src="image/image.png" alt="Logo" class="logo">
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="sercices.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="prestation">
+    <div class="contenu">
+        <div class="texte">
+            <h1>Qui suis-je ?</h1>
+            <p>
+                Je suis Hermann GBOHO, graphiste designer spécialisé en branding, basé à San-Pédro.
+                Fort de 5 années d’expérience, j’accompagne entreprises et particuliers dans la création 
+                d’identités visuelles fortes, cohérentes et mémorables.
+            </p>
+
+            <p>
+                Grâce à une approche à la fois créative et stratégique, je transforme vos idées en designs 
+                originaux et impactants, fidèles à l’essence de votre marque.
+            </p>
+
+            <p>
+                <strong>Un projet, une idée ou une collaboration en tête ?</strong><br>
+                N’hésitez pas à me contacter, je serai ravi d’échanger avec vous.
+            </p>
+        </div>
+
+        <div class="image">
+            <img src="image/WhatsApp Image 2026-01-06 at 10.52.23.jpeg" alt="Qui suis-je">
+        </div>
+    </div>
+</div>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>Contact</h2>
+
+    <form class="contact-form" id="contactForm">
+    <input type="text" id="nom" placeholder="Nom" required>
+    <input type="text" id="prenom" placeholder="Prénom" required>
+    <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+    <textarea id="message" placeholder="Votre message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+    <small class="info-whatsapp">Vous serez redirigé vers WhatsApp</small>
+
+    <p id="error" style="color:red; display:none;"></p>
+</form>
+
+<!-- MAP -->
+<section class="map">
+    <iframe
+        src="https://www.google.com/maps?q=San-Pedro,Côte%20d'Ivoire&output=embed"
+        loading="lazy">
+    </iframe>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 — Créé par Design and Co</p>
+</footer>
+
+<!-- JAVASCRIPT HAMBURGER -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('open');
+    });
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nom = document.getElementById("nom").value.trim();
+    let prenom = document.getElementById("prenom").value.trim();
+    let telephone = document.getElementById("telephone").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let error = document.getElementById("error");
+
+    // Validation du numéro (Côte d'Ivoire : 10 chiffres)
+    let regexTelephone = /^[0-9]{10}$/;
+
+    if (!regexTelephone.test(telephone)) {
+        error.style.display = "block";
+        error.textContent = "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
+        return;
+    } else {
+        error.style.display = "none";
+    }
+
+    let texte =
+`Bonjour, je vous contacte depuis votre site web.
+Nom : ${nom}
+Prénom : ${prenom}
+Téléphone : ${telephone}
+Message : ${message}`;
+
+    let numeroWhatsApp = "2250758774741"; // Ton numéro WhatsApp avec indicatif
+    let url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texte);
+
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>

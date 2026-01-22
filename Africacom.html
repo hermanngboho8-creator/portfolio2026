@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa communication</title>
+
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="Africacomm/projet6.css">
+</head>
+<body>
+
+<!-- ==============================
+HEADER / MENU
+============================== -->
+<header class="header">
+    <div class="container nav">
+        <img src="image/image.png" alt="Logo" class="logo">
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html"class="active">Portfolio</a></li>
+                <li><a href="sercices.html" >Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ==============================
+INFO PROJET
+============================== -->
+<section class="project-info">
+    <div class="container">
+        <h1>Africa Communication</h1>
+        <p><strong>Type de projet :</strong>Design graphique</p>
+        <p><strong>Date :</strong> octobre 2025</p>
+    </div>
+</section>
+
+<!-- ==============================
+IMAGES DU PROJET
+============================== -->
+<section class="project-images">
+    <div class="container grid-images">
+        <div class="image-block">
+            <img src="image/Realisation/AFRICACOMMUNICATION/WhatsApp Image 2026-01-10 at 10.50.30.jpeg" alt="">
+        </div>
+        <div class="image-block">
+            <img src="image/Realisation/AFRICACOMMUNICATION/DOSSIER PRESENTATION MICRO PERFORE copie-05.png" alt="">
+        </div>
+        <div class="image-block">
+            <img src="image/Realisation/AFRICACOMMUNICATION/DOSSIER PRESENTATION MICRO PERFORE copie-09.png" alt="">
+        </div>
+        <div class="image-block">
+            <img src="image/Realisation/AFRICACOMMUNICATION/WhatsApp Image 2026-01-14 at 13.20.33.jpeg" alt="">
+        </div>
+    </div>
+    
+    </div>
+</section>
+
+<!-- ==============================
+CARROUSEL AUTRES PROJETS
+============================== -->
+<section class="carousel">
+    <h2>Autres projets</h2>
+
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev">&#10094;</button>
+
+        <div class="carousel-track" id="carouselTrack">
+            <a href="Alliancefrancace.html"><img src="image/Realisation/ALLIANCE FR/couverture.jpeg" alt=""></a>
+            <a href="solera energie.html"><img src="image/Realisation/SOLERA ENERGIE/Couverture SE.jpeg" alt=""></a>
+            <a href="Lignea.html"><img src="image/Realisation/LIGNEA/couverture LG.jpeg" alt=""></a>
+            <a href="Designandco.html"><img src="image/Realisation/DESIGN AND CO/couverture DC.jpeg" alt=""></a>
+            <a href="bl.html"><img src="image/Realisation/BLUE LABEL ENTREPRISE/couverture bl.jpeg" alt=""></a>
+            <a href="Africacom.html"><img src="image/Realisation/AFRICACOMMUNICATION/WhatsApp Image 2026-01-10 at 10.50.31.jpeg" alt=""></a>
+            <a href="ts.html"><img src="image/Realisation/T-SHIRT CHRETIEN/couverture chr.jpeg" alt=""></a>
+        </div>
+
+        <button class="carousel-btn next">&#10095;</button>
+    </div>
+</section>
+
+<!-- ==============================
+CONTACT
+============================== -->
+<section class="contact" id="contact">
+    <h2>Contact</h2>
+
+    <form class="contact-form" id="contactForm">
+        <input type="text" id="nom" placeholder="Nom" required>
+        <input type="text" id="prenom" placeholder="Prénom" required>
+        <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+        <textarea id="message" placeholder="Votre message" required></textarea>
+
+        <button type="submit">Envoyer</button>
+        <small class="info-whatsapp">Vous serez redirigé vers WhatsApp</small>
+        <p id="error" style="color:red; display:none;"></p>
+    </form>
+</section>
+
+<!-- ==============================
+FOOTER
+============================== -->
+<footer class="footer">
+    <p>© 2026 — Créé par Design and Co</p>
+</footer>
+
+<!-- ==============================
+JAVASCRIPT
+============================== -->
+
+<!-- MENU -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('open');
+    });
+</script>
+
+<!-- FORMULAIRE WHATSAPP -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const telephone = document.getElementById("telephone").value.trim();
+    const regex = /^[0-9]{10}$/;
+
+    if (!regex.test(telephone)) {
+        document.getElementById("error").style.display = "block";
+        document.getElementById("error").textContent =
+            "Numéro invalide (10 chiffres requis)";
+        return;
+    }
+
+    const message = `
+Nom : ${nom.value}
+Prénom : ${prenom.value}
+Téléphone : ${telephone}
+Message : ${message.value}
+    `;
+
+    window.open(
+        "https://wa.me/2250758774741?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+});
+</script>
+
+<!-- CARROUSEL -->
+<script>
+    const track = document.getElementById("carouselTrack");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+
+    const scrollAmount = 270;
+
+    nextBtn.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+</script>
+
+<!-- JAVASCRIPT FORMULAIRE -->
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nom = document.getElementById("nom").value.trim();
+    let prenom = document.getElementById("prenom").value.trim();
+    let telephone = document.getElementById("telephone").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let error = document.getElementById("error");
+
+    // Validation du numéro (Côte d'Ivoire : 10 chiffres)
+    let regexTelephone = /^[0-9]{10}$/;
+
+    if (!regexTelephone.test(telephone)) {
+        error.style.display = "block";
+        error.textContent = "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
+        return;
+    } else {
+        error.style.display = "none";
+    }
+
+    let texte =
+`Bonjour, je vous contacte depuis votre site web.
+Nom : ${nom}
+Prénom : ${prenom}
+Téléphone : ${telephone}
+Message : ${message}`;
+
+    let numeroWhatsApp = "2250758774741"; // Ton numéro WhatsApp avec indicatif
+    let url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texte);
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>

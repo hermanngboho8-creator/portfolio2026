@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Hermann Gboho</title>
+
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="css/style 1.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="container nav">
+        <img src="image/image.png" alt="Logo" class="logo">
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="sercices.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= TITRE PAGE ================= -->
+<section class="page-title">
+    <h1>Mon Portfolio</h1>
+    <p>
+        Une sélection de projets créatifs en branding,
+        design graphique et communication visuelle.
+    </p>
+</section>
+
+<!-- ================= PORTFOLIO (2 LIGNES / 4 COLONNES) ================= -->
+<section class="projects">
+    <div class="projects-grid">
+
+        <!-- LIGNE 1 -->
+        <a href="Alliancefrancace.html" class="project-card">
+            <img src="image/Realisation/ALLIANCE FR/couverture.jpeg" alt="">
+            <div class="overlay">Alliance Française</div>
+        </a>
+
+        <a href="solera energie.html" class="project-card">
+            <img src="image/Realisation/SOLERA ENERGIE/Couverture SE.jpeg" alt="">
+            <div class="overlay">Solera Energy</div>
+        </a>
+
+        <a href="Lignea.html" class="project-card">
+            <img src="image/Realisation/LIGNEA/couverture LG.jpeg" alt="">
+            <div class="overlay">LIGNEA</div>
+        </a>
+
+        <a href="Designandco.html" class="project-card">
+            <img src="image/Realisation/DESIGN AND CO/couverture DC.jpeg" alt="">
+            <div class="overlay">Design and Co</div>
+        </a>
+        
+
+        <!-- LIGNE 2 (MÊME TAILLE) -->
+        <a href="bl.html" class="project-card empty">
+            <img src="image/Realisation/BLUE LABEL ENTREPRISE/couverture bl.jpeg" alt="">
+            <div class="overlay">Projet à venir</div>
+        </a>
+
+        <a href="Africacom.html" class="project-card empty">
+            <img src="image/Realisation/AFRICACOMMUNICATION/WhatsApp Image 2026-01-10 at 10.50.30.jpeg" alt="">
+            <div class="overlay">Projet à venir</div>
+        </a>
+
+        <a href="Ts.html" class="project-card empty">
+            <img src="image/Realisation/T-SHIRT CHRETIEN/couverture chr.jpeg" alt="">
+            <div class="overlay">Projet à venir</div>
+        </a>
+    </div>
+</section>
+
+<!-- ================= TÉLÉCHARGEMENT PDF ================= -->
+<section class="download-section">
+    <div class="download-text">
+        <h2>Portfolio complet</h2>
+        <p>Téléchargez la version PDF de mon portfolio professionnel.</p>
+        <a href="erreur.html" class="btn-pdf" download>
+            Télécharger la version PDF
+        </a>
+    </div>
+
+    <a href="erreur.html" class="download-image">
+        <img src="image/page de garde.jpg" alt="Portfolio PDF">
+    </a>
+</section>
+
+<!-- ================= RÉSEAUX SOCIAUX ================= -->
+<section class="socials">
+    <a href="https://www.facebook.com/Designandco8"><img src="image/reseau social/Sans-titre-2_0002_38176372008af40fec8a46aeae0328d4.png" alt="Facebook"></a>
+    <a href="https://www.instagram.com/designandco2?igsh=MTdtcWpkcWlhaGE3bQ=="><img src="image/reseau social/Sans-titre-2_0003_5864d9ee6a2a593627ad9696b8a8ddc4.png" alt="Instagram"></a>
+    <a href="https://www.behance.net/hermanngboho1"><img src="image/reseau social/Sans-titre-2_0000_Behance.png" alt="behence"></a>
+    <a href="https://www.linkedin.com/in/hermann-gboho-842bbb1b4/"><img src="image/reseau social/Sans-titre-2_0001_Download-Linkedin-logo-vector,-Linkedin-symbol,-Linkedin-icon-free-vector.png" alt="LinkedIn"></a>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>Contact</h2>
+
+    <form class="contact-form" id="contactForm">
+    <input type="text" id="nom" placeholder="Nom" required>
+    <input type="text" id="prenom" placeholder="Prénom" required>
+    <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+    <textarea id="message" placeholder="Votre message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+    <small class="info-whatsapp">Vous serez redirigé vers WhatsApp</small>
+
+    <p id="error" style="color:red; display:none;"></p>
+</form>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© 2026 — Créé par Design and Co</p>
+</footer>
+
+<!-- ================= JS MENU ================= -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('open');
+    });
+</script>
+
+<!-- JAVASCRIPT FORMULAIRE -->
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nom = document.getElementById("nom").value.trim();
+    let prenom = document.getElementById("prenom").value.trim();
+    let telephone = document.getElementById("telephone").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let error = document.getElementById("error");
+
+    // Validation du numéro (Côte d'Ivoire : 10 chiffres)
+    let regexTelephone = /^[0-9]{10}$/;
+
+    if (!regexTelephone.test(telephone)) {
+        error.style.display = "block";
+        error.textContent = "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
+        return;
+    } else {
+        error.style.display = "none";
+    }
+
+    let texte =
+`Bonjour, je vous contacte depuis votre site web.
+Nom : ${nom}
+Prénom : ${prenom}
+Téléphone : ${telephone}
+Message : ${message}`;
+
+    let numeroWhatsApp = "2250758774741"; // Ton numéro WhatsApp avec indicatif
+    let url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texte);
+
+    window.open(url, "_blank");
+});
+</script>
+
+
+</body>
+</html>
